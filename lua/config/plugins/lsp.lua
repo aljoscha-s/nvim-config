@@ -7,12 +7,20 @@ return {
         settings = {
           Lua = {
             diagnostics = {
-              globals = { "vim" },  -- so lua_ls doesn't warn about 'vim' global
+              globals = { "vim" },
             },
           },
         },
       })
 
+      vim.lsp.config("rust_analyzer", {
+        settings = {
+          ["rust-analyzer"] = {
+            checkOnSave = { command = "clippy" },
+          },
+        },
+      })
+      vim.lsp.enable("rust_analyzer")
       vim.lsp.enable("lua_ls")
     end,
   },
