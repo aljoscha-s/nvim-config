@@ -27,8 +27,17 @@ return {
 
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.config("ts_ls", {
+				-- IMPORTANT: let prettier handle formatting, not tsserver
+				on_attach = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+					client.server_capabilities.documentRangeFormattingProvider = false
+				end,
 			})
 			vim.lsp.enable("ts_ls")
+
+			vim.lsp.config("eslint", {
+			})
+			vim.lsp.enable("eslint")
 		end,
 	},
 }
