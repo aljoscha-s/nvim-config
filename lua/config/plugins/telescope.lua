@@ -42,6 +42,15 @@ return {
 				})
 			end, { desc = "Live grep (hidden)" })
 			vim.keymap.set("n", "<space>fw", require("telescope.builtin").grep_string, { desc = "Grep word" })
+			vim.keymap.set("n", "<space>gf", require("telescope.builtin").git_files, { desc = "Git files" })
+			vim.keymap.set("n", "<space>gs", require("telescope.builtin").git_status, { desc = "Git status" })
+			vim.keymap.set("n", "<space>gc", require("telescope.builtin").git_commits,
+				{ desc = "Git commits" })
+			vim.keymap.set("n", "<space>gC", require("telescope.builtin").git_bcommits,
+				{ desc = "Git commits (file)" })
+			vim.keymap.set("n", "<space>gb", require("telescope.builtin").git_branches,
+				{ desc = "Git branches" })
+			vim.keymap.set("n", "<space>gS", require("telescope.builtin").git_stash, { desc = "Git stash" })
 		end
 	}
 }

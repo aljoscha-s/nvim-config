@@ -1,5 +1,7 @@
 require("config.lazy")
 require("config.format")
+require("config.keymaps")
+
 
 vim.opt.clipboard = "unnamedplus"
 vim.wo.number = true
@@ -7,11 +9,18 @@ vim.cmd [[colorscheme tokyonight]]
 
 vim.diagnostic.config({
 	virtual_text = {
-		enabled = true,
-		-- optional tweaks:
 		spacing = 2,
-		source = "if_many", -- show which LSP (use "always" to always show)
-		prefix = "●", -- could also be "■", "▎", "", etc.
+		source = "if_many",
+		prefix = "●",
+		-- show only first line (or first N chars) inline
+		format = function(d)
+			local msg = d.message:gsub("\n", " ")
+			local max = 80
+			if #msg > max then
+				return msg:sub(1, max) .. "…"
+			end
+			return msg
+		end,
 	},
 	signs = true, -- the E/W icons in the gutter
 	underline = true, -- red underline
@@ -20,5 +29,7 @@ vim.diagnostic.config({
 	float = {
 		border = "rounded",
 		source = "always",
+		-- floats wrap by default; this just makes it nicer to read
+		max_width = math.floor(vim.o.columns * 0.8),
 	},
 })
