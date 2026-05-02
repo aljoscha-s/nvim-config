@@ -1,8 +1,9 @@
+require("config.options") -- must be loaded before config.lazy!
 require("config.lazy")
 require("config.format")
 require("config.keymaps")
 
-
+vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
 vim.wo.number = true
 vim.cmd [[colorscheme tokyonight]]
