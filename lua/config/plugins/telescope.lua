@@ -17,12 +17,34 @@ return {
 						grouped = true,
 						hidden = true,
 					},
+					fzf = {},
 				},
 			})
 
 			pcall(telescope.load_extension, "fzf")
 			pcall(telescope.load_extension, "file_browser")
 
+			--
+			-- VIM pickers
+			--
+			-- vim.keymap.set("n", "<leader>fr", require('telescope.builtin').oldfiles)
+
+			-- vim.keymap.set("n", "<leader>fr", function()
+			-- 	require('telescope.builtin').oldfiles {
+			-- 		cwd = true
+			-- 	}
+			-- end)
+			vim.keymap.set("n", "<leader>fr", function()
+				local utils = require("telescope.utils")
+				local root = utils.get_os_command_output({ "git", "rev-parse", "--show-toplevel" })[1]
+				if not root or root == "" then
+					root = vim.loop.cwd()
+				end
+				require("telescope.builtin").oldfiles({
+					cwd = root,
+					only_cwd = true,
+				})
+			end, { desc = "Recent files (git root)" })
 			--
 			-- File pickers
 			--
