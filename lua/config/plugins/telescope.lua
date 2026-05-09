@@ -9,7 +9,6 @@ return {
 		},
 		config = function()
 			local telescope = require("telescope")
-			local themes = require("telescope.themes")
 
 			telescope.setup({
 				extensions = {
@@ -22,18 +21,12 @@ return {
 			})
 
 			pcall(telescope.load_extension, "fzf")
-			pcall(telescope.load_extension, "file_browser")
 
 			--
 			-- VIM pickers
 			--
-			-- vim.keymap.set("n", "<leader>fr", require('telescope.builtin').oldfiles)
-
-			-- vim.keymap.set("n", "<leader>fr", function()
-			-- 	require('telescope.builtin').oldfiles {
-			-- 		cwd = true
-			-- 	}
-			-- end)
+			vim.keymap.set("n", "<leader>fb", require("telescope.builtin").buffers,
+				{ desc = "List open buffers" })
 			vim.keymap.set("n", "<leader>fr", function()
 				local utils = require("telescope.utils")
 				local root = utils.get_os_command_output({ "git", "rev-parse", "--show-toplevel" })[1]
@@ -48,11 +41,6 @@ return {
 			--
 			-- File pickers
 			--
-			vim.keymap.set("n", "<leader>fb", function()
-				telescope.extensions.file_browser.file_browser(
-					themes.get_ivy({})
-				)
-			end, { desc = "File Browser" })
 			vim.keymap.set("n", "<leader>fd", require('telescope.builtin').find_files)
 			vim.keymap.set("n", "<leader>en", function()
 				require('telescope.builtin').find_files {
