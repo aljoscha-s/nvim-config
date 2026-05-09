@@ -1,3 +1,7 @@
+-- Remap german keyboard it as in QWERTY keayboard
+vim.keymap.set('n', 'ö', ';', { noremap = true })
+vim.keymap.set('n', 'Ö', ',', { noremap = true })
+
 vim.keymap.set("n", "]d", function()
 	vim.diagnostic.jump({ count = 1, float = true })
 end, { desc = "Next diagnostic" })
