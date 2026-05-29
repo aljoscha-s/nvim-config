@@ -25,7 +25,7 @@ vim.diagnostic.config({
 	},
 	signs = true, -- the E/W icons in the gutter
 	underline = true, -- red underline
-	update_in_insert = false,
+	update_in_insert = true,
 	severity_sort = true,
 	float = {
 		border = "rounded",

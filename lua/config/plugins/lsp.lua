@@ -21,6 +21,14 @@ return {
 				settings = {
 					["rust-analyzer"] = {
 						checkOnSave = { command = "clippy" },
+						inlayHints = {
+							typeHints = { enable = true },
+							parameterHints = { enable = true },
+							chainingHints = { enable = true },
+						},
+						completion = {
+							fullFunctionSignatures = { enable = true },
+						},
 					},
 				},
 			})
@@ -38,6 +46,7 @@ return {
 			vim.lsp.config("eslint", {
 			})
 			vim.lsp.enable("eslint")
+			vim.lsp.inlay_hint.enable(true)
 		end,
 	},
 }
