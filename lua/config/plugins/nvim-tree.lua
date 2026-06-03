@@ -9,6 +9,9 @@ return {
 		require("nvim-tree").setup { update_focused_file = {
 			enable = true,
 			update_cwd = true,
+		}, filters = {
+			dotfiles = false,
+			git_ignored = false,
 		}, }
 		vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file tree" })
 	end,

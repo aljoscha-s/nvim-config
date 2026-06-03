@@ -41,7 +41,13 @@ return {
 			--
 			-- File pickers
 			--
-			vim.keymap.set("n", "<leader>fd", require('telescope.builtin').find_files)
+			vim.keymap.set("n", "<leader>fd", function()
+				require("telescope.builtin").find_files({
+					hidden = true,
+					no_ignore = true,
+					file_ignore_patterns = { "node_modules/", "%.git/" },
+				})
+			end)
 			vim.keymap.set("n", "<leader>en", function()
 				require('telescope.builtin').find_files {
 					cwd = vim.fn.stdpath("config")
