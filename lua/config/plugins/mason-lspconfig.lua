@@ -6,10 +6,15 @@ return {
 			ensure_installed = {
 				"eslint",
 				"lua_ls",
-				"rust_analyzer",
+				-- Managed by rustaceanvim now
+				-- "rust_analyzer",
 				"ts_ls",
 			},
 			automatic_installation = true,
+			automatic_enable = {
+				-- Managed by rustaceanvim now
+				exclude = { "rust_analyzer" },
+			},
 		},
 	},
 }

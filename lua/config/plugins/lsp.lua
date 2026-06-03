@@ -17,23 +17,6 @@ return {
 			})
 
 			vim.lsp.enable("lua_ls")
-			vim.lsp.config("rust_analyzer", {
-				settings = {
-					["rust-analyzer"] = {
-						checkOnSave = { command = "clippy" },
-						inlayHints = {
-							typeHints = { enable = true },
-							parameterHints = { enable = true },
-							chainingHints = { enable = true },
-						},
-						completion = {
-							fullFunctionSignatures = { enable = true },
-						},
-					},
-				},
-			})
-
-			vim.lsp.enable("rust_analyzer")
 			vim.lsp.config("ts_ls", {
 				-- IMPORTANT: let prettier handle formatting, not tsserver
 				on_attach = function(client)
