@@ -6,7 +6,6 @@ require("config.keymaps")
 vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
 vim.wo.number = true
-vim.g.nvim_tree_respect_buf_cwd = 1
 
 vim.diagnostic.config({
 	virtual_text = {

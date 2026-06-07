@@ -6,9 +6,9 @@ return {
 		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
-		require("nvim-tree").setup { update_focused_file = {
+		require("nvim-tree").setup { sync_root_with_cwd = false, update_focused_file = {
 			enable = true,
-			update_cwd = true,
+			update_cwd = false,
 		}, filters = {
 			dotfiles = false,
 			git_ignored = false,
