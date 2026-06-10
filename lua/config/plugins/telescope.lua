@@ -45,7 +45,7 @@ return {
 				require("telescope.builtin").find_files({
 					hidden = true,
 					no_ignore = true,
-					file_ignore_patterns = { "node_modules/", "%.git/" },
+					file_ignore_patterns = { "node_modules/", "%.git/", "target/" },
 				})
 			end)
 			vim.keymap.set("n", "<leader>en", function()
