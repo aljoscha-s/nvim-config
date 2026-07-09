@@ -9,7 +9,7 @@ return {
 				-- Managed by rustaceanvim now
 				-- "rust_analyzer",
 				"ts_ls",
-				"json-lsp"
+				"jsonls"
 			},
 			automatic_installation = true,
 			automatic_enable = {
