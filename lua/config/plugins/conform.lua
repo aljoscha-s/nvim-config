@@ -9,6 +9,7 @@ return {
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
 				json = { "prettier" },
+				jsonc = { "prettier" },
 				css = { "prettier" },
 				scss = { "prettier" },
 				html = { "prettier" },

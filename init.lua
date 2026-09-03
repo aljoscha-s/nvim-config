@@ -1,6 +1,5 @@
 require("config.options") -- must be loaded before config.lazy!
 require("config.lazy")
-require("config.format")
 require("config.keymaps")
 
 vim.g.mapleader = " "
