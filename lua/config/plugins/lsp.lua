@@ -18,6 +18,15 @@ return {
 
 			vim.lsp.enable("lua_ls")
 			vim.lsp.config("ts_ls", {
+				init_options = {
+					hostInfo = "neovim",
+					tsserver = {
+						-- The syntax-only server answers while the project is still loading,
+						-- returning completions without auto-imports / module exports.
+						-- Disable it so completion waits for the real project instead.
+						useSyntaxServer = "never",
+					},
+				},
 				-- IMPORTANT: let prettier handle formatting, not tsserver
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
@@ -25,6 +34,10 @@ return {
 				end,
 				settings = {
 					typescript = {
+						preferences = {
+							-- also suggest auto-imports from dependencies not yet imported anywhere
+							includePackageJsonAutoImports = "on",
+						},
 						inlayHints = {
 							includeInlayParameterNameHints = "none",
 							includeInlayFunctionParameterTypeHints = false,
@@ -36,6 +49,9 @@ return {
 						},
 					},
 					javascript = {
+						preferences = {
+							includePackageJsonAutoImports = "on",
+						},
 						inlayHints = {
 							includeInlayParameterNameHints = "none",
 							includeInlayFunctionParameterTypeHints = false,
