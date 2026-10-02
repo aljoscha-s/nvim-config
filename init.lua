@@ -2,6 +2,7 @@ require("config.options") -- must be loaded before config.lazy!
 require("config.lazy")
 require("config.keymaps")
 require("config.autocmds")
+require("config.gitlab")
 
 vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
